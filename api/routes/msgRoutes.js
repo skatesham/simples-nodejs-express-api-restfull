@@ -3,6 +3,9 @@
 module.exports = function (app) {
     var messages = require('../controllers/msgController');
     // Routes Mensagem
+    app.route('/')
+        .get(messages.welcome)
+
     app.route('/messages')
         .get(messages.list_all_messages)
         .post(messages.create_a_message);

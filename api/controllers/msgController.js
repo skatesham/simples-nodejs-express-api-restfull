@@ -48,3 +48,15 @@ exports.delete_a_message = function (req, res) {
         res.json({ message: "Mensagem deletada com sucesso" });
     });
 };
+
+exports.welcome = function (req, res) {
+    res.json({
+        message: "Bem vindo a RESTfull API de Mensagens",
+        descricao: "Modelo de mensagem {title:'', body: ''}",
+        rotas: "As rotas são explicadas no objeto 'route' abaixo",
+        routes: [
+        {path: "/messages", descricao: "GET para buscar todos, POST para criar"},
+        {path: "/messages", descricao: "GET para buscar, PUT para atualizar e DETELE para remover"}
+        ]
+    });
+};
