@@ -14,8 +14,14 @@ app = express();
 
 
 // Configurando MongoDB Driver
+// mongodb URI: mongodb://mensagem:mensagem123@ds119394.mlab.com:19394/msgdb
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/msgdb', { useNewUrlParser: true }); // Json parser = { useNewUrlParser: true }
+var mongoDB = process.env.MONGODB_URI || 'mongodb://mensagem:mensagem123@ds119394.mlab.com:19394/msgdb'
+// Para banco de dados local
+//mongoose.connect('mongodb://localhost/msgdb', { useNewUrlParser: true }); // Json parser = { useNewUrlParser: true }
+
+// Para Banco de dados externo do MLAB
+mongoose.connect(mongoDB, { useNewUrlParser: true });
 
 //Configurando Routes
 routes(app);
