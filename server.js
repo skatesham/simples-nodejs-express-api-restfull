@@ -12,6 +12,13 @@ var routes = require('./api/routes/msgRoutes');
 port = process.env.PORT || 3000;
 app = express();
 
+// teste com parse-body
+bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(bodyParser.json());
+
 
 // Configurando MongoDB Driver
 // mongodb URI: mongodb://mensagem:mensagem123@ds119394.mlab.com:19394/msgdb
